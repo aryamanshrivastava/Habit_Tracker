@@ -5,9 +5,15 @@ import 'package:habit_tracker/theme/theme_provider.dart';
 import 'package:habit_tracker/views/home.dart';
 import 'package:provider/provider.dart';
 
-void main() {
+import 'database/habit_database.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await HabitDatabase.initialize();
+  await HabitDatabase().saveFirstLaunchDate();
   runApp(MultiProvider(
     providers: [
+      ChangeNotifierProvider(create: (_) => HabitDatabase()),
       ChangeNotifierProvider(create: (_) => ThemeProvider()),
     ],
     child: MyApp(),
