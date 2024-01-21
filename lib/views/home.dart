@@ -18,6 +18,12 @@ class HomeView extends StatefulWidget {
 
 class _HomeViewState extends State<HomeView> {
   final TextEditingController textcontroller = TextEditingController();
+  @override
+  void initState() {
+    Provider.of<HabitDatabase>(context, listen: false).readHabits();
+    super.initState();
+  }
+
   void createNewHabit() {
     showDialog(
         context: context,
@@ -105,12 +111,6 @@ class _HomeViewState extends State<HomeView> {
   }
 
   @override
-  void initState() {
-    Provider.of<HabitDatabase>(context, listen: false).readHabits();
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.background,
@@ -118,15 +118,18 @@ class _HomeViewState extends State<HomeView> {
         backgroundColor: Colors.transparent,
         elevation: 0,
         foregroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text('HomeView'),
         centerTitle: true,
       ),
       drawer: MyDrawer(),
       floatingActionButton: FloatingActionButton(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(30),
+        ),
         onPressed: createNewHabit,
         elevation: 0,
         backgroundColor: Theme.of(context).colorScheme.tertiary,
-        child: Icon(Icons.add),
+        child: Icon(Icons.add,
+            color: Theme.of(context).colorScheme.inversePrimary),
       ),
       body: ListView(
         children: [
@@ -169,13 +172,11 @@ class _HomeViewState extends State<HomeView> {
         final habit = currentHabits[index];
         //check if the habit is completed today
         bool isCompletedToday = isHabitCompletedToday(habit.completedDays);
-        //return the habit tile 
+        //return the habit tile
         return MyHabitTile(
             text: habit.name,
             isCompleted: isCompletedToday,
-            onChanged: (value) {
-              checkHabitOnOff(value, habit);
-            },
+            onChanged: (value) => checkHabitOnOff(value, habit),
             editHabit: (context) => editHabitBox(habit),
             deleteHabit: (context) => deleteHabit(habit));
       },
