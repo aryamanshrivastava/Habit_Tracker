@@ -128,23 +128,48 @@ class _HomeViewState extends State<HomeView> {
         backgroundColor: Theme.of(context).colorScheme.tertiary,
         child: Icon(Icons.add),
       ),
-      // body: 
-      // ListView(
-      //   children: [
-      //     MyHeatMap(startDate: , datasets: )
-      //   ],
-      // ),
+      body: ListView(
+        children: [
+          buildHeatMap(),
+          buildHabitList(),
+        ],
+      ),
+    );
+  }
+
+  Widget buildHeatMap() {
+    final habitDatabase = context.watch<HabitDatabase>();
+    List<Habit> currentHabits = habitDatabase.currentHabits;
+    return FutureBuilder<DateTime?>(
+      future: habitDatabase.getFirstLaunchDate(),
+      builder: (context, snapshot) {
+        if (snapshot.hasData) {
+          return MyHeatMap(
+              startDate: snapshot.data!,
+              datasets: prepareHeatMapData(currentHabits));
+        } else {
+          return Container();
+        }
+      },
     );
   }
 
   Widget buildHabitList() {
+    //get the habit database
     final habitDatabase = context.watch<HabitDatabase>();
+    //get the current habits from the database
     List<Habit> currentHabits = habitDatabase.currentHabits;
+    //build the list view of habits
     return ListView.builder(
+      shrinkWrap: true,
+      physics: NeverScrollableScrollPhysics(),
       itemCount: currentHabits.length,
       itemBuilder: (context, index) {
+        //get the habit at the current index
         final habit = currentHabits[index];
+        //check if the habit is completed today
         bool isCompletedToday = isHabitCompletedToday(habit.completedDays);
+        //return the habit tile 
         return MyHabitTile(
             text: habit.name,
             isCompleted: isCompletedToday,
