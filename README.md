@@ -8,7 +8,6 @@ Welcome to the Habit Tracker app, a powerful and intuitive mobile application bu
 - **📊 Heatmap Visualization:**  Gain insights into your habit progress with the interactive heatmap. Easily identify trends and patterns in your habits over time, helping you stay motivated and focused.
 - **🌞🌑Light and Dark Mode:**  Personalize your experience with light and dark mode options. Switch between themes effortlessly to suit your preferences and reduce eye strain during different times of the day.
 
-
 ## Getting Started 🛠️
 
 1. **Clone the Repository:**
@@ -39,4 +38,4 @@ Welcome to the Habit Tracker app, a powerful and intuitive mobile application bu
 Distributed under the MIT License. See [LICENSE](https://github.com/aryamanshrivastava/Habit_Tracker/blob/main/LICENSE) for more information.
 
 ## Contact 📫
-Aryaman Shrivastava - shrivastavaaryaman0702@gmail.com
+🎉Aryaman Shrivastava - shrivastavaaryaman0702@gmail.com
