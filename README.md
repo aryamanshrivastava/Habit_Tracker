@@ -29,9 +29,10 @@ Welcome to the Habit Tracker app, a powerful and intuitive mobile application bu
     flutter run
 
 ## Screenshots 📸
-    Light Mode             |         Dark Mode
-:-------------------------:|:-------------------------:
-assets\s1.png              |       assets\s2.png
+
+| Light Mode | Dark Mode |
+|------------|-----------|
+| <img src="assets/s2.png" width="200" height="400"> | <img src="assets/s1.png" width="200" height="400"> |
 
 
 ## Technologies Used 🧪
@@ -53,7 +54,7 @@ assets\s1.png              |       assets\s2.png
 2. **Run Code Generator**
 
    ```bash
-  flutter pub run build_runner build 
+   flutter pub run build_runner build 
 
   For more information, see [Isar Documentation](https://isar.dev/tutorials/quickstart.html).
 
