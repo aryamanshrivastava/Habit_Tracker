@@ -31,24 +31,32 @@ class _HomeViewState extends State<HomeView> {
               content: TextField(
                 controller: textcontroller,
                 decoration: InputDecoration(
-                  hintText: 'Create a new habit',
+                  hintText: 'Create a new habit', 
+                  hintStyle: TextStyle(color: Colors.black54),
                 ),
               ),
               actions: [
-                MaterialButton(
-                    onPressed: () {
-                      String newHabitName = textcontroller.text;
-                      context.read<HabitDatabase>().addHabit(newHabitName);
-                      Navigator.of(context).pop();
-                      textcontroller.clear();
-                    },
-                    child: Text('Save')),
-                MaterialButton(
-                    onPressed: () {
-                      Navigator.of(context).pop();
-                      textcontroller.clear();
-                    },
-                    child: Text('Cancel')),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    TextButton(
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                          textcontroller.clear();
+                        },
+                        child: Text('Cancel',
+                            style: TextStyle(color: Colors.red))),
+                    TextButton(
+                        onPressed: () {
+                          String newHabitName = textcontroller.text;
+                          context.read<HabitDatabase>().addHabit(newHabitName);
+                          Navigator.of(context).pop();
+                          textcontroller.clear();
+                        },
+                        child: Text('Save',
+                            style: TextStyle(color: Colors.green))),
+                  ],
+                ),
               ],
             ));
   }

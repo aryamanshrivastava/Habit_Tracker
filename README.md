@@ -28,11 +28,34 @@ Welcome to the Habit Tracker app, a powerful and intuitive mobile application bu
     ```bash
     flutter run
 
+## Screenshots 📸
+    Light Mode             |         Dark Mode
+:-------------------------:|:-------------------------:
+assets\s1.png              |       assets\s2.png
+
+
 ## Technologies Used 🧪
 
 **Flutter & Dart**
 
 **ISAR Database**
+
+**Heatmap Calendar**
+
+## Set Up ISAR DATABASE 🖥️
+
+1. **Add dependencies**
+
+   ```bash
+   flutter pub add isar isar_flutter_libs path_provider
+   flutter pub add -d isar_generator build_runner
+
+2. **Run Code Generator**
+
+   ```bash
+  flutter pub run build_runner build 
+
+  For more information, see [Isar Documentation](https://isar.dev/tutorials/quickstart.html).
 
 ## License 📜
 Distributed under the MIT License. See [LICENSE](https://github.com/aryamanshrivastava/Habit_Tracker/blob/main/LICENSE) for more information.
