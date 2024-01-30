@@ -63,3 +63,6 @@ Distributed under the MIT License. See [LICENSE](https://github.com/aryamanshriv
 
 ## Contact 📫
 🎉Aryaman Shrivastava - shrivastavaaryaman0702@gmail.com
+
+If you find this app helpful, don't forget to star the repository! ⭐️
+
